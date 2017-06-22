@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div class="templates:surround?with=templates/page.html&amp;at=content">
+        <div class="container">
+        <script src="$app-root/resources/js/leaflet/leaflet.js"/>
+        <link rel="stylesheet" href="$app-root/resources/js/leaflet/leaflet.css"/>
+        
+        <link rel="stylesheet" type="text/css" href="$app-root/resources/js/leaflet/MarkerCluster.css"/>
+        <link rel="stylesheet" type="text/css" href="$app-root/resources/js/leaflet/MarkerCluster.Default.css"/>
+        <script type="text/javascript" src="$app-root/resources/js/leaflet/markercluster_not_official.js"/>
+        <style>
+            #map{
+            height: 500px;
+            }
+        </style>
+        <h1>plot your tei:listPlace element on a map</h1>
+            <form method="get">
+                Url to TEI-Doc: <input type="listPlace" name="listPlace"/>
+                <input type="submit" value="Submit"/>
+            </form>
+        <div id="map"/>
+        
+        <script type="text/javascript">
+            
+            var mapLayerGroups = [];
+            var listPlace = findGetParameter("listPlace") ;
+            var datasource =  "../services/listPlace2GeoJSON.xql?listPlace="+listPlace;
+            function onEachFeature(feature, layer) {
+                var url2entity = "entries.html?indexSearch="+feature.properties.internalID+"&amp;"
+                var link = "&lt;a href="+url2entity+"&gt;"+feature.properties.placename+"&lt;/a&gt;";
+                layer.bindPopup(link);
+            };
+            
+            $.getJSON( datasource, function( data ) {
+                var geojson = data;
+                console.log(geojson) ;
+                var map = L.map('map').setView([44, 20], 2); 
+                L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                attribution: 'Map data &lt;a href="http://openstreetmap.org"&gt;OpenStreetMap&lt;/a&gt; contributors, &lt;a href="http://creativecommons.org/licenses/by-sa/2.0/"&gt;CC-BY-SA&lt;/a&gt;Imagery © &lt;a href="http://mapbox.com"&gt;Mapbox&lt;/a&gt;',
+                maxZoom: 18,
+                id: 'mapbox.light',
+                accessToken: 'pk.eyJ1Ijoic2VubmllcmVyIiwiYSI6ImNpbHk1YWV0bDAwZnB2dW01d2l1Y3phdmkifQ.OljQLEhqeAygai2y6VoSwQ'
+                }).addTo(map);
+                var markers = L.markerClusterGroup({});
+                var geoJsonLayer = L.geoJson( data, {onEachFeature: onEachFeature});
+                markers.addLayer(geoJsonLayer);
+                map.addLayer(markers);
+                
+            });
+            
+        </script>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://expath.org/ns/pkg" name="http://www.digital-archiv.at/ns/teiminator" abbrev="teiminator" version="1.0" spec="1.0">
+    <title>TEIminator - a TEI dissemation Serice</title>
+</package>

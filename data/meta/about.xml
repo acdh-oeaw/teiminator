@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>About</title>
+                <author>
+                    <persName>
+                        <forename>Peter</forename>
+                        <surname>Andorfer</surname>
+                    </persName>
+                </author>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>ACDH-OeAW</publisher>
+                <pubPlace>Vienna</pubPlace>
+                <date when="2017"/>
+                <availability>
+                    <licence target="https://creativecommons.org/licenses/by/4.0/">
+                        <p>The Creative Commons Attribution 4.0 International (CC BY 4.0) License applies
+                            to this text.</p>
+                        <p>The CC BY 4.0 License also applies to this TEI XML file.</p>
+                    </licence>
+                </availability>
+            </publicationStmt>
+            <sourceDesc>
+                <p>born digital</p>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div>
+                <head>About this website</head>
+                <p>This website provides several dissemination services for XML documents encoded following the <ref target="http://www.tei-c.org/">TEI-Guidelines</ref>
+                </p>
+            </div>
+        </body>
+    </text>
+</TEI>
