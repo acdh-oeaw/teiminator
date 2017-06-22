@@ -16,7 +16,7 @@ let $return := if ($fetchedUrl eq "")
     then 
         <result>
             <hint>set a 'listPLace' param to a URL providing a valid TEI-Document containg a listPlace element</hint>
-            <example>?listPlace=http://127.0.0.1:8000/entities/place/list/export-as-tei</example>
+            <example>?listPlace=https://teihencer.acdh.oeaw.ac.at/entities/place/list/export-as-tei</example>
         </result> else tei-module:listPlace2geoJSON($listPlace, ' ', false())
 return 
     $return
