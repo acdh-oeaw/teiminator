@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+  </teiHeader>
+  <text>
+      <body>
+         <p>This is some fallback TEI. Please make sure that you submitted a valid TEI Document.</p>
+         <p>try this prams for example: <ref>?tei=http://diglib.hab.de/edoc/ed000223/tei-introduction.xml&amp;xsl=http://diglib.hab.de/edoc/ed000223/tei-introduction.xsl</ref>
+            </p>
+      </body>
+  </text>
+</TEI>
