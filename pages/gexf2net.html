@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div class="templates:surround?with=templates/page.html&amp;at=content">
+    <script src="$app-root/resources/js/tablesorter/js/jquery.tablesorter.js"/>
+    <script src="$app-root/resources/js/linkurious/src/sigma.core.js"/>
+    <script src="$app-root/resources/js/linkurious/src/conrad.js"/>
+    <script src="$app-root/resources/js/linkurious/src/utils/sigma.utils.js"/>
+    <script src="$app-root/resources/js/linkurious/src/utils/sigma.polyfills.js"/>
+    <script src="$app-root/resources/js/linkurious/src/sigma.settings.js"/>
+    <script src="$app-root/resources/js/linkurious/src/classes/sigma.classes.dispatcher.js"/>
+    <script src="$app-root/resources/js/linkurious/src/classes/sigma.classes.configurable.js"/>
+    <script src="$app-root/resources/js/linkurious/src/classes/sigma.classes.graph.js"/>
+    <script src="$app-root/resources/js/linkurious/src/classes/sigma.classes.camera.js"/>
+    <script src="$app-root/resources/js/linkurious/src/classes/sigma.classes.quad.js"/>
+    <script src="$app-root/resources/js/linkurious/src/captors/sigma.captors.mouse.js"/>
+    <script src="$app-root/resources/js/linkurious/src/captors/sigma.captors.touch.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/sigma.renderers.canvas.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/sigma.renderers.webgl.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/sigma.renderers.svg.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/sigma.renderers.def.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/webgl/sigma.webgl.nodes.def.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/webgl/sigma.webgl.nodes.fast.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/webgl/sigma.webgl.edges.def.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/webgl/sigma.webgl.edges.fast.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/webgl/sigma.webgl.edges.arrow.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/canvas/sigma.canvas.labels.def.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/canvas/sigma.canvas.hovers.def.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/canvas/sigma.canvas.nodes.def.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/canvas/sigma.canvas.edges.def.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/canvas/sigma.canvas.edges.curve.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/canvas/sigma.canvas.edges.arrow.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/canvas/sigma.canvas.edges.curvedArrow.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/canvas/sigma.canvas.edgehovers.def.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/canvas/sigma.canvas.edgehovers.curve.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/canvas/sigma.canvas.edgehovers.arrow.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/canvas/sigma.canvas.edgehovers.curvedArrow.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/canvas/sigma.canvas.extremities.def.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/svg/sigma.svg.utils.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/svg/sigma.svg.nodes.def.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/svg/sigma.svg.edges.def.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/svg/sigma.svg.edges.curve.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/svg/sigma.svg.edges.curvedArrow.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/svg/sigma.svg.labels.def.js"/>
+    <script src="$app-root/resources/js/linkurious/src/renderers/svg/sigma.svg.hovers.def.js"/>
+    <script src="$app-root/resources/js/linkurious/src/middlewares/sigma.middlewares.rescale.js"/>
+    <script src="$app-root/resources/js/linkurious/src/middlewares/sigma.middlewares.copy.js"/>
+    <script src="$app-root/resources/js/linkurious/src/misc/sigma.misc.animation.js"/>
+    <script src="$app-root/resources/js/linkurious/src/misc/sigma.misc.bindEvents.js"/>
+    <script src="$app-root/resources/js/linkurious/src/misc/sigma.misc.bindDOMEvents.js"/>
+    <script src="$app-root/resources/js/linkurious/src/misc/sigma.misc.drawHovers.js"/><!-- END SIGMA IMPORTS -->
+    <script src="$app-root/resources/js/linkurious/plugins/sigma.parsers.json/sigma.parsers.json.js"/>
+    <script src="$app-root/resources/js/linkurious/plugins/sigma.parsers.gexf/gexf-parser.js"/>
+    <script src="$app-root/resources/js/linkurious/plugins/sigma.parsers.gexf/sigma.parsers.gexf.js"/>
+    <script src="$app-root/resources/js/linkurious/plugins/sigma.plugins.animate/sigma.plugins.animate.js"/>
+    <script src="$app-root/resources/js/linkurious/plugins/sigma.layouts.forceLink/worker.js"/>
+    <script src="$app-root/resources/js/linkurious/plugins/sigma.layouts.forceLink/supervisor.js"/>
+    <script src="$app-root/resources/js/linkurious/plugins/sigma.layouts.noverlap/sigma.layout.noverlap.js"/>
+    <script src="$app-root/resources/js/linkurious/plugins/sigma.plugins.animate/sigma.plugins.animate.js"/>
+    <script src="$app-root/resources/js/linkurious/plugins/sigma.layouts.fruchtermanReingold/sigma.layout.fruchtermanReingold.js"/>
+    <script src="$app-root/resources/js/linkurious/plugins/sigma.plugins.tooltips/sigma.plugins.tooltips.js"/>
+    <script src="$app-root/resources/js/linkurious/plugins/sigma.plugins.design/sigma.plugins.design.js"/>
+    <script src="$app-root/resources/js/linkurious/plugins/sigma.plugins.filter/sigma.plugins.filter.js"/>
+    <script src="$app-root/resources/js/linkurious/plugins/sigma.exporters.json/sigma.exporters.json.js"/>
+    <script src="$app-root/resources/js/linkurious/plugins/sigma.exporters.graphml/sigma.exporters.graphml.js"/>
+    <div class="panel panel-default panel-fixed">
+      
+      <h1>Plot your CMFI file as Network</h1>
+      <form method="get">
+        Url to CMFI: <input type="text" name="CMFI" value="http://diglib.hab.de/edoc/ed000213/download/cmi.xml"/>
+        <input type="submit" value="Submit"/>
+      </form>
+      <p>Try <a href="http://correspsearch.net/data.xql?id=cmiFiles&amp;l=de" target="blank">correspSearch</a> for a list of CMFI-Files</p>
+        <div class="panel-heading">
+            <h2>Network Visualization</h2>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-2">
+                    <div id="filter-container">
+                        <div id="control-pane">
+                            <h2 class="underline">filters</h2>
+                            <div>
+                                <h3>min degree <span id="min-degree-val">0</span>
+                                </h3>
+      0 <input id="min-degree" type="range" min="0" max="28" value="0"/>
+                                <span id="max-degree-value">28</span>
+                                <br/>
+                            </div>
+                            <span class="line"/>
+                            <div>
+                                <button id="reset-btn">Reset filters</button>
+                                <button id="export-btn">Export</button>
+                            </div>
+                            <div id="dump" class="hidden"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div id="graph-container" style="min-height: 800px"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+$( document ).ready(function() {
+  var CMFI = findGetParameter("CMFI") ;
+  var datasource =  "../services/CMFI2GEXF.xql?CMFI="+CMFI;
+if (!$.ThunNet) {
+    $.ThunNet = {};
+    $.ThunNet.instance = new sigma('graph-container');
+    $.ThunNet.instance.settings({
+  minNodeSize: 5,
+  maxNodeSize: 15,
+    animationsTime: 4500,
+
+});
+    $.ThunNet.design = sigma.plugins.design($.ThunNet.instance);
+    sigma.layouts.configForceLink($.ThunNet.instance, {
+      worker: true,
+      barnesHutOptimize: true,
+      gravity: 10,
+      autoStop: true,
+      background: true,
+      easing: 'cubicInOut'
+    });
+
+   var listenerNOV = $.ThunNet.instance.configNoverlap({
+      maxIterations: 100,
+    })
+   var style = {
+    nodes: {
+      size: {
+      by: 'data.degree',
+      bins: 7,
+      min: 2,
+      max: 20
+    }
+    }
+   };
+
+sigma.parsers.gexf(
+datasource,
+  $.ThunNet.instance,
+  function() {
+    var count = 0;
+    $.ThunNet.instance.graph.nodes().forEach(function (n) {
+      n.x = Math.random();
+      n.y = Math.random();
+      n.size = 10*(1-1/$.ThunNet.instance.graph.degree(n.id));
+      n.degree = $.ThunNet.instance.graph.degree(n.id)
+      n.color = '#0066ff';
+    });
+    $.ThunNet.instance.graph.edges().forEach(function(e) {
+      e.color = '#bfbfbf';
+    })
+    $.ThunNet.instance.refresh();
+    var layoutForce = sigma.layouts.startForceLink($.ThunNet.instance);
+    layoutForce.bind('stop', function(event) {
+      $.ThunNet.instance.refresh();
+      console.log($.ThunNet.instance);
+    $.ThunNet.instance.startNoverlap();
+});
+    filter = sigma.plugins.filter($.ThunNet.instance);
+  updatePane($.ThunNet.instance.graph, filter);
+
+  
+  });
+$.ThunNet.design.setStyles(style);
+//$.ThunNet.design.apply('nodes');
+};
+$('#min-degree').on("input", applyMinDegreeFilter);  // for Chrome and FF
+$('#min-degree').on("change", applyMinDegreeFilter); // for IE10+, that sucks
+})
+
+function applyMinDegreeFilter(e) {
+    var v = e.target.value;
+    $('#min-degree-val').text(v);
+
+    filter
+      .undo('min-degree')
+      .nodesBy(
+        function(n, options) {
+          return this.graph.degree(n.id) &gt;= options.minDegreeVal;
+        },
+        {
+          minDegreeVal: +v
+        },
+        'min-degree'
+      )
+      .apply();
+  }
+
+function updatePane (graph, filter) {
+  // get max degree
+  var maxDegree = 0;
+
+  // read nodes
+  graph.nodes().forEach(function(n) {
+    maxDegree = Math.max(maxDegree, graph.degree(n.id));
+  });
+
+
+  // min degree
+  $('#min-degree').attr({'max': maxDegree}) ;
+  $('#max-degree-value').text(maxDegree);
+
+  // reset button
+  $('#reset-btn').on("click", function(e) {
+    $('#min-degree').val(0);
+    $('#min-degree-val').text('0');
+    filter.undo().apply();
+    $('#dump').textContent = '';
+  });
+
+  // export button
+  $('#export-btn').on("click", function(e) {
+    $.ThunNet.instance.toJSON({
+                      download: true,
+                      filename: 'ThunNetExport.json'
+                    });
+  });
+}
+
+
+</script>
+</div>
