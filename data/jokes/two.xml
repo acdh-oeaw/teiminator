@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Joke Two</title>
+            <author ref="http://d-nb.info/gnd/1043833846">Peter Andorfer</author>
+         </titleStmt>
+         <publicationStmt>
+            <p>teiminator.acdh.oeaw.ac.at</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Born in Peter's head</p>
+         </sourceDesc>
+      </fileDesc>
+  </teiHeader>
+  <text>
+      <body>
+         <spGrp>
+            <sp>
+               <speaker>Peter</speaker>
+               <l>What is a Digital Humanist's favorite movie?</l>
+               <l>
+                        <emph>TEI</emph>minator!</l>
+            </sp>
+         </spGrp>
+      </body>
+  </text>
+</TEI>
