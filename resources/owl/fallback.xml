@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html>
+   <head>
+      <meta charset="utf-8"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <!-- The above 3 meta tags *must* come first in the head -->   
+      <meta name="description" content=""/>
+      <meta name="author" content=""/>
+      <link rel="icon" href="favicon.ico"/>
+      <title>
+         OWL2HTML by ÖAW-ACDH
+      </title>
+      <!-- Bootstrap core CSS -->
+      <link rel="stylesheet" type="text/css" href="../resources/css/bootstrap-3.0.3.min.css"/>
+      <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+      <link rel="stylesheet" type="text/css" href="../resources/owl/css/ie10-viewport-bug-workaround.css"/>
+      <!-- Custom styles for this template -->
+      <link rel="stylesheet" type="text/css" href="../resources/owl/css/style.css"/>
+   </head>
+   <body>
+      <div class="container">
+         <div class="header clearfix">
+            <h3 class="service-name">OWL2HTML</h3>
+            <a class="navbar-brand" target="_blank" href="http://www.oeaw.ac.at/acdh/en">
+                    <img src="../resources/img/acdh_logo2clean_40-84_text_blue.png"/>
+                </a>
+         </div>				
+         <div class="jumbotron">
+            <h2>Error</h2>
+            <span>
+               <strong>Sorry, either your owl parameter is empty or not a valid <a href="https://www.w3.org/TR/owl-overview/">OWL</a> file.</strong>
+            </span>
+            <h3>Maybe try another URL</h3>
+            <form method="get">
+               Url to OWL-Doc: <input type="text" name="owl" value="https://raw.githubusercontent.com/csae8092/schemaplay/master/acdh-schema-v0.1.owl"/>
+               <input type="submit" value="Submit"/>
+            </form>
+         </div>
+      </div>
+   </body>
+</html>

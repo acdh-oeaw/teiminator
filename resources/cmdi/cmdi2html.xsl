@@ -12,7 +12,7 @@
                 <link rel="icon" href="favicon.ico"/>
                 <title>
                     <!-- <xsl:value-of select="cmd:Components/cmd:FrequencyListProfile/cmd:GeneralInfo/cmd:ResourceName"/> -->
-                    CMDI2HTML by ÖAW-ACDH
+                    OWL2HTML by ÖAW-ACDH
                 </title>
                 <!-- Bootstrap core CSS -->
                 <link rel="stylesheet" type="text/css" href="../resources/css/bootstrap-3.0.3.min.css"/>

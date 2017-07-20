@@ -1,0 +1,1083 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns="https://vocabs.acdh.oeaw.ac.at/acdh#" xmlns:dct="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/#" xmlns:foaf="http://xmlns.com/foaf/spec/#" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="https://vocabs.acdh.oeaw.ac.at/acdh">
+    <owl:Ontology rdf:about="https://vocabs.acdh.oeaw.ac.at/acdh">
+        <owl:versionInfo xml:lang="en">2017-04-06 - added cardinality and some test description, Martina</owl:versionInfo>
+        <rdfs:comment xml:lang="en">This is a draft ontology for ACDH repository.</rdfs:comment>
+        <owl:versionInfo xml:lang="en">changed namespace, Matej</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">2016-07-26 - removed imports, Matej</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">Version 0.1. First created on 2016-07-19 by Go</owl:versionInfo>
+        <owl:versionInfo>2017-06-14 removed and renamed some Digital/Non-Digital classes.
+DigitalResource -&gt; Resource
+DigitalCollection -&gt; Collection
+DigitalProject -&gt; removed
+rearranged the class hierarchy</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#label -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#label">
+        <rdfs:label>rdfs:label</rdfs:label>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- acdh:authored -->
+
+    <owl:ObjectProperty rdf:about="acdh:authored">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:hasAuthor"/>
+        <rdfs:label xml:lang="en">authored</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:categorized -->
+
+    <owl:ObjectProperty rdf:about="acdh:categorized">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:hasCategory"/>
+        <rdfs:label xml:lang="en">categorized</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:contributed -->
+
+    <owl:ObjectProperty rdf:about="acdh:contributed">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:hasContributor"/>
+        <rdfs:label xml:lang="en">contributed</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:cooperated -->
+
+    <owl:ObjectProperty rdf:about="acdh:cooperated">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:label xml:lang="en">cooperated</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:covered -->
+
+    <owl:ObjectProperty rdf:about="acdh:covered">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:hasCoverage"/>
+        <rdfs:label xml:lang="en">covered</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:created -->
+
+    <owl:ObjectProperty rdf:about="acdh:created">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:hasCreator"/>
+        <rdfs:label xml:lang="en">created</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:createdMetadata -->
+
+    <owl:ObjectProperty rdf:about="acdh:createdMetadata">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:hasMetadataCreator"/>
+        <rdfs:label xml:lang="en">created metadata</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:deposited -->
+
+    <owl:ObjectProperty rdf:about="acdh:deposited">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:hasDepositor"/>
+        <rdfs:label xml:lang="en">deposited</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:edited -->
+
+    <owl:ObjectProperty rdf:about="acdh:edited">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:hasEditor"/>
+        <rdfs:label xml:lang="en">edited</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:followed -->
+
+    <owl:ObjectProperty rdf:about="acdh:followed">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:preceded"/>
+        <rdfs:label xml:lang="en">followed</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:funded -->
+
+    <owl:ObjectProperty rdf:about="acdh:funded">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:hasFunder"/>
+        <rdfs:label xml:lang="en">funded</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasAccessRestriction -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasAccessRestriction">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:restrictedAccess"/>
+        <rdfs:label xml:lang="en">has access restriction</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasActor -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasActor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:isActor"/>
+        <rdfs:label xml:lang="en">has actor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasAuthor -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasAuthor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">has author</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasCategory -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasCategory">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">has category</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasContact -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasContact">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:isContact"/>
+        <rdfs:label xml:lang="en">has contact</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasContributor -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasContributor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">has contributor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasCoverage -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasCoverage">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">has coverage</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasCreator -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasCreator">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">has creator</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasDepositor -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasDepositor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">has depositor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasDerivedPublication -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasDerivedPublication">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:isDerivedPublication"/>
+        <rdfs:label xml:lang="en">has derived publication</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasEditor -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasEditor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">has editor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasFormat -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasFormat">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:isFormat"/>
+        <rdfs:label xml:lang="en">has format</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasFunder -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasFunder">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">has funder</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasLicense -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasLicense">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:licensed"/>
+        <rdfs:label xml:lang="en">has license</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasLicensor -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasLicensor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:isLicensor"/>
+        <rdfs:label xml:lang="en">has licensor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasLifeCycleStatus -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasLifeCycleStatus">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:isLifeCycleStatusOf"/>
+        <rdfs:label xml:lang="en">has life cycle status</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasLogo -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasLogo">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:isLogo"/>
+        <rdfs:label xml:lang="en">has logo</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasMetadataCreator -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasMetadataCreator">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">has metadata creator</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasOwner -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasOwner">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:owned"/>
+        <rdfs:label xml:lang="en">has owner</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasPart -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasPart">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:isPartOf"/>
+        <rdfs:label xml:lang="en">has part</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasPreserver -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasPreserver">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:preserved"/>
+        <rdfs:label xml:lang="en">has preserver</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasPrincipalInvestigator -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasPrincipalInvestigator">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:isPrincipalInvestigator"/>
+        <rdfs:label xml:lang="en">has principal investigator</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasRelatedDiscipline -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasRelatedDiscipline">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:isRelatedDisciplineOf"/>
+        <rdfs:label xml:lang="en">has related discipline</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasRelatedHardware -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasRelatedHardware">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:isRelatedHardware"/>
+        <rdfs:label xml:lang="en">has related hardware</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasRelatedMethod -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasRelatedMethod">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:isRelatedMethod"/>
+        <rdfs:label xml:lang="en">has related method</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasRelatedSoftware -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasRelatedSoftware">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:isRelatedSoftware"/>
+        <rdfs:label xml:lang="en">has related software</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasRightsHolder -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasRightsHolder">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:isRightsHolder"/>
+        <rdfs:label xml:lang="en">has rights holder</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasSchema -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasSchema">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:isSchemaOf"/>
+        <rdfs:label xml:lang="en">has schema</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasSource -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasSource">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:isSourceOf"/>
+        <rdfs:label xml:lang="en">has source</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasSpatialCoverage -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasSpatialCoverage">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:spatiallyCovered"/>
+        <rdfs:label xml:lang="en">has spatial coverage</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasSubject -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasSubject">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:isSubjectOf"/>
+        <rdfs:label xml:lang="en">has subject</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasTemporalCoverage -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasTemporalCoverage">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:temporallyCovered"/>
+        <rdfs:label xml:lang="en">has temporal coverage</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasTitleImage -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasTitleImage">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:isTitleImageOf"/>
+        <rdfs:label xml:lang="en">has title image</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:hasTransferMethod -->
+
+    <owl:ObjectProperty rdf:about="acdh:hasTransferMethod">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="acdh:isTransferMethod"/>
+        <rdfs:label xml:lang="en">has transfer method</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:isActor -->
+
+    <owl:ObjectProperty rdf:about="acdh:isActor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">is actor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:isContact -->
+
+    <owl:ObjectProperty rdf:about="acdh:isContact">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">is contact</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:isDerivedPublication -->
+
+    <owl:ObjectProperty rdf:about="acdh:isDerivedPublication">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">is derived publication</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:isFormat -->
+
+    <owl:ObjectProperty rdf:about="acdh:isFormat">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">is format</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:isLicensor -->
+
+    <owl:ObjectProperty rdf:about="acdh:isLicensor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">is licensor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:isLifeCycleStatusOf -->
+
+    <owl:ObjectProperty rdf:about="acdh:isLifeCycleStatusOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">is lifecycle status of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:isLogo -->
+
+    <owl:ObjectProperty rdf:about="acdh:isLogo">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">is logo</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:isPartOf -->
+
+    <owl:ObjectProperty rdf:about="acdh:isPartOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">is part of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:isPrincipalInvestigator -->
+
+    <owl:ObjectProperty rdf:about="acdh:isPrincipalInvestigator">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">is principal investigator</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:isRelatedDisciplineOf -->
+
+    <owl:ObjectProperty rdf:about="acdh:isRelatedDisciplineOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">is related discipline of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:isRelatedHardware -->
+
+    <owl:ObjectProperty rdf:about="acdh:isRelatedHardware">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">is related hardware</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:isRelatedMethod -->
+
+    <owl:ObjectProperty rdf:about="acdh:isRelatedMethod">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">is related method</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:isRelatedSoftware -->
+
+    <owl:ObjectProperty rdf:about="acdh:isRelatedSoftware">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">is related software</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:isRightsHolder -->
+
+    <owl:ObjectProperty rdf:about="acdh:isRightsHolder">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">is rights holder</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:isSchemaOf -->
+
+    <owl:ObjectProperty rdf:about="acdh:isSchemaOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">is schema of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:isSourceOf -->
+
+    <owl:ObjectProperty rdf:about="acdh:isSourceOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">is source of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:isSubjectOf -->
+
+    <owl:ObjectProperty rdf:about="acdh:isSubjectOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">is subject of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:isTitleImageOf -->
+
+    <owl:ObjectProperty rdf:about="acdh:isTitleImageOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">is title image of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:isTransferMethod -->
+
+    <owl:ObjectProperty rdf:about="acdh:isTransferMethod">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">is transfer method</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:licensed -->
+
+    <owl:ObjectProperty rdf:about="acdh:licensed">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">licensed</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:owned -->
+
+    <owl:ObjectProperty rdf:about="acdh:owned">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">owned</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:preceded -->
+
+    <owl:ObjectProperty rdf:about="acdh:preceded">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">preceded</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:preserved -->
+
+    <owl:ObjectProperty rdf:about="acdh:preserved">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">preserved</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:relation -->
+
+    <owl:ObjectProperty rdf:about="acdh:relation">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">relation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:restrictedAccess -->
+
+    <owl:ObjectProperty rdf:about="acdh:restrictedAccess">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">restricted access</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:spatiallyCovered -->
+
+    <owl:ObjectProperty rdf:about="acdh:spatiallyCovered">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">spatially covered</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:temporallyCovered -->
+
+    <owl:ObjectProperty rdf:about="acdh:temporallyCovered">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">temporally covered</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- acdh:version -->
+
+    <owl:ObjectProperty rdf:about="acdh:version">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:label xml:lang="en">version</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- acdh:hasArrangement -->
+
+    <owl:DatatypeProperty rdf:about="acdh:hasArrangement">
+        <rdfs:subPropertyOf rdf:resource="acdh:hasDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">The aim is to give a logical and coherent overall view of the whole set of objects. Here the description of folder structure, nature of relationship between objects and metadata, etc. are expected. (https://docs.google.com/spreadsheets/d/1rtaYrWRRkrcFnKghbVlS6rmCLfobx1Prs764MQjQ4BA/edit#gid=0)</rdfs:comment>
+        <rdfs:label xml:lang="en">has arrangement</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- acdh:hasCharacterEncoding -->
+
+    <owl:DatatypeProperty rdf:about="acdh:hasCharacterEncoding">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">information about character encoding used and also information about nonstandard characters and glyphs (https://docs.google.com/spreadsheets/d/1rtaYrWRRkrcFnKghbVlS6rmCLfobx1Prs764MQjQ4BA/edit#gid=0)</rdfs:comment>
+        <rdfs:label xml:lang="en">has character encoding</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- acdh:hasCompleteness -->
+
+    <owl:DatatypeProperty rdf:about="acdh:hasCompleteness">
+        <rdfs:subPropertyOf rdf:resource="acdh:hasDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">how complete is the resource (https://docs.google.com/spreadsheets/d/1rtaYrWRRkrcFnKghbVlS6rmCLfobx1Prs764MQjQ4BA/edit#gid=0)</rdfs:comment>
+        <rdfs:label xml:lang="en">has completeness</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- acdh:hasCreationDate -->
+
+    <owl:DatatypeProperty rdf:about="acdh:hasCreationDate">
+        <rdfs:subPropertyOf rdf:resource="acdh:hasDate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:label xml:lang="en">has creation date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- acdh:hasDate -->
+
+    <owl:DatatypeProperty rdf:about="acdh:hasDate">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:label xml:lang="en">has date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- acdh:hasDescription -->
+
+    <owl:DatatypeProperty rdf:about="acdh:hasDescription">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:label xml:lang="en">has description</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- acdh:hasEditorialPractice -->
+
+    <owl:DatatypeProperty rdf:about="acdh:hasEditorialPractice">
+        <rdfs:subPropertyOf rdf:resource="acdh:hasDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">details of editorial principles and practices applied during the encoding of a text (https://docs.google.com/spreadsheets/d/1rtaYrWRRkrcFnKghbVlS6rmCLfobx1Prs764MQjQ4BA/edit#gid=0)</rdfs:comment>
+        <rdfs:label xml:lang="en">has editorial practice</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- acdh:hasEndDate -->
+
+    <owl:DatatypeProperty rdf:about="acdh:hasEndDate">
+        <rdfs:subPropertyOf rdf:resource="acdh:hasDate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:label xml:lang="en">has end date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- acdh:hasEndpoint -->
+
+    <owl:DatatypeProperty rdf:about="acdh:hasEndpoint">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:label xml:lang="en">has endpoint</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- acdh:hasIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="acdh:hasIdentifier">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:label xml:lang="en">has identifier</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- acdh:hasLocationPath -->
+
+    <owl:DatatypeProperty rdf:about="acdh:hasLocationPath">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:label xml:lang="en">has location path</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- acdh:hasLocationUrl -->
+
+    <owl:DatatypeProperty rdf:about="acdh:hasLocationUrl">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:label xml:lang="en">has location URL</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- acdh:hasNamingScheme -->
+
+    <owl:DatatypeProperty rdf:about="acdh:hasNamingScheme">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">conventions used for naming of files and folders, if any (https://docs.google.com/spreadsheets/d/1rtaYrWRRkrcFnKghbVlS6rmCLfobx1Prs764MQjQ4BA/edit#gid=0)</rdfs:comment>
+        <rdfs:label xml:lang="en">has naming scheme</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- acdh:hasNote -->
+
+    <owl:DatatypeProperty rdf:about="acdh:hasNote">
+        <rdfs:subPropertyOf rdf:resource="acdh:hasDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:label xml:lang="en">has note</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- acdh:hasPid -->
+
+    <owl:DatatypeProperty rdf:about="acdh:hasPid">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:label xml:lang="en">has pid</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- acdh:hasStartDate -->
+
+    <owl:DatatypeProperty rdf:about="acdh:hasStartDate">
+        <rdfs:subPropertyOf rdf:resource="acdh:hasDate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:label xml:lang="en">has start date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- acdh:hasSubmissionDate -->
+
+    <owl:DatatypeProperty rdf:about="acdh:hasSubmissionDate">
+        <rdfs:subPropertyOf rdf:resource="acdh:hasDate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:label xml:lang="en">has submission date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- acdh:hasTitle -->
+
+    <owl:DatatypeProperty rdf:about="acdh:hasTitle">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:label xml:lang="en">has title</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- acdh:hasTransferDate -->
+
+    <owl:DatatypeProperty rdf:about="acdh:hasTransferDate">
+        <rdfs:subPropertyOf rdf:resource="acdh:hasDate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:label xml:lang="en">has transfer date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- acdh:hasVersion -->
+
+    <owl:DatatypeProperty rdf:about="acdh:hasVersion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:label xml:lang="en">has version</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- acdh:Agent -->
+
+    <owl:Class rdf:about="acdh:Agent">
+        <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:label xml:lang="en">Agent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- acdh:Collection -->
+
+    <owl:Class rdf:about="acdh:Collection">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:label xml:lang="en">Collection</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- acdh:Concept -->
+
+    <owl:Class rdf:about="acdh:Concept">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:label xml:lang="en">Concept</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- acdh:Organization -->
+
+    <owl:Class rdf:about="acdh:Organization">
+        <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <rdfs:subClassOf rdf:resource="acdh:Agent"/>
+        <rdfs:label xml:lang="en">Organization</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- acdh:Person -->
+
+    <owl:Class rdf:about="acdh:Person">
+        <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:subClassOf rdf:resource="acdh:Agent"/>
+        <rdfs:label xml:lang="en">Person</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- acdh:Place -->
+
+    <owl:Class rdf:about="acdh:Place">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:label xml:lang="en">Place</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- acdh:Project -->
+
+    <owl:Class rdf:about="acdh:Project">
+        <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:label xml:lang="en">Project</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- acdh:Resource -->
+
+    <owl:Class rdf:about="acdh:Resource">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:label xml:lang="en">Resource</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Organization -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Organization">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Project -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Project"/>
+</rdf:RDF><!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
