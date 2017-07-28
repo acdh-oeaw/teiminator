@@ -21,16 +21,19 @@ return
 	then
 		(check:report($tei),check:report($xsl))
 	else
-let $params := 
-<parameters>
-   {for $p in request:get-parameter-names()
-    let $val := request:get-parameter($p,())
-   (: where  not($p = ("document","directory","stylesheet")):)
-    return
-       <param name="{$p}"  value="{$val}"/>
-   }
-</parameters>
-
-return 
-(:    doc($fallbackXSL):)
-    transform:transform($tei, $xsl, $params)
+	
+	let $teiFile := doc($tei)
+	let $xslFile := doc($xsl)
+	let $params := 
+	<parameters>
+	   {for $p in request:get-parameter-names()
+	    let $val := request:get-parameter($p,())
+	   (: where  not($p = ("document","directory","stylesheet")):)
+	    return
+	       <param name="{$p}"  value="{$val}"/>
+	   }
+	</parameters>
+	
+	return 
+	(:    doc($fallbackXSL):)
+	    transform:transform($teiFile, $xslFile, $params)
