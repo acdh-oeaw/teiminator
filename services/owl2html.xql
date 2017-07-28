@@ -7,6 +7,7 @@ import module namespace config = "http://www.digital-archiv.at/ns/teiminator/con
 declare namespace tei = "http://www.tei-c.org/ns/1.0";
 
 declare option exist:serialize "method=xhtml media-type=text/html omit-xml-declaration=yes indent=yes";
+declare option exist:timeout "15000";
 
 let $fallback := doc('../resources/owl/fallback.xml')
 

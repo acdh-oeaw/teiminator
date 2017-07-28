@@ -9,6 +9,7 @@ declare namespace tei = "http://www.tei-c.org/ns/1.0";
 
 declare option exist:serialize "method=xhtml media-type=text/html omit-xml-declaration=yes indent=yes";
 (: e.g. http://127.0.0.1:8080/exist/apps/teiminator/analyze/visPlace.xql?notBefore=1910-10-10&notAfter=1910-12-01:)
+declare option exist:timeout "15000";
 
 let $fallbackXSL := '../resources/xslt/fallbackXSL.xsl'
 let $fallbackTEI := '../resources/xml/fallbackTEI.xml'
