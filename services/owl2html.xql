@@ -4,6 +4,7 @@ import module namespace xmldb = "http://exist-db.org/xquery/xmldb";
 import module namespace httpclient = "http://exist-db.org/xquery/httpclient";
 import module namespace util = "http://exist-db.org/xquery/util";
 import module namespace config = "http://www.digital-archiv.at/ns/teiminator/config" at "../modules/config.xqm";
+import module namespace check = "http://www.digital-archiv.at/ns/teiminator/check" at "../modules/check.xqm";
 declare namespace tei = "http://www.tei-c.org/ns/1.0";
 
 declare option exist:serialize "method=xhtml media-type=text/html omit-xml-declaration=yes indent=yes";
