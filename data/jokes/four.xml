@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Joke One</title>
+            <author ref="http://d-nb.info/gnd/1053806175">Timo Steyer</author>
+         </titleStmt>
+         <publicationStmt>
+            <p>teiminator.acdh.oeaw.ac.at</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Born in Timo's head</p>
+         </sourceDesc>
+      </fileDesc>
+  </teiHeader>
+  <text>
+      <body>
+         <spGrp>
+            <sp>
+               <speaker>Timo</speaker>
+               <l>What is the capital of a Digital Humanities?</l>
+            </sp>
+            <sp>
+               <speaker>Answer</speaker>
+               <l><emph>TEI</emph>pei!</l>
+            </sp>
+         </spGrp>
+      </body>
+  </text>
+</TEI>
