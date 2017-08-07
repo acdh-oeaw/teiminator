@@ -18,23 +18,26 @@ let $tei := request:get-parameter("tei", $fallbackTEI)
 let $xsl := request:get-parameter("xsl", $fallbackXSL)
 
 return 
-	if (not(check:checkXML($tei)) or not(check:checkXML($xsl)))
-	then
-		(check:report($tei),check:report($xsl))
-	else
-	
-	let $teiFile := doc($tei)
-	let $xslFile := doc($xsl)
-	let $params := 
-	<parameters>
-	   {for $p in request:get-parameter-names()
-	    let $val := request:get-parameter($p,())
-	   (: where  not($p = ("document","directory","stylesheet")):)
-	    return
-	       <param name="{$p}"  value="{$val}"/>
-	   }
-	</parameters>
-	
-	return 
-	(:    doc($fallbackXSL):)
-	    transform:transform($teiFile, $xslFile, $params)
+	try {
+		let $teiFile := doc($tei)
+		let $xslFile := doc($xsl)
+		let $params := 
+		<parameters>
+		   {for $p in request:get-parameter-names()
+		    let $val := request:get-parameter($p,())
+		   (: where  not($p = ("document","directory","stylesheet")):)
+		    return
+		       <param name="{$p}"  value="{$val}"/>
+		   }
+		</parameters>
+		
+		return 
+		    transform:transform($teiFile, $xslFile, $params)
+	}
+	catch * { <div>
+		<p>Some error occurred while transforming:</p>
+	<ul><li>file: {$tei}</li><li>XSLT: {$xsl}</li><li>parameters: {$params}</li></ul><br/> 
+		<ul><li>{$err:code}: {$err:description}</li><li>{$err:line-number}:{$err:column-number}</li><li>a: {$err:additional}</li></ul>
+		<p>Possible reasons include:</p>
+		</div>
+		}
