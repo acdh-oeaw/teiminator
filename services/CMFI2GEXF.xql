@@ -27,19 +27,19 @@ let $result :=
                         for $person in $corresp//tei:persName[1]
                             let $key := data($person/@ref)
                             group by $key
-                            return
+                            where ($key != "") return 
                                 <node id="{$key}" label="{$person[1]/text()}"/>
          
                 }
                 </nodes>
                 <edges>
                 {
-                    for $corresp in $source//tei:correspDesc[./tei:correspAction[@type='sent'] and ./tei:correspAction[@type='received']]
+                    for $corresp at $pos in $source//tei:correspDesc[./tei:correspAction[@type='sent'] and ./tei:correspAction[@type='received']]
                         let $sender := $corresp/tei:correspAction[@type='sent']//tei:persName[1]
                         let $reciver := $corresp/tei:correspAction[@type='received']//tei:persName[1]
-                        let $id := data($corresp/@ref)
-                            return
-                                <edge id="{$id}" source="{data($sender/@ref)}" target="{data($reciver/@ref)}" />
+                        let $id := if(data($corresp/@key)) then data($corresp/@key) else data($corresp/@key)
+                        where(data($sender/@ref) != "" and data($reciver/@ref) != "" and $id != "")   return 
+                                <edge id="{$pos}" source="{data($sender/@ref)}" target="{data($reciver/@ref)}" />
                 }
         
                     
