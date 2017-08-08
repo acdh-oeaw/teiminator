@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0">
     <!-- created 2017-07-20 DK = dario.kampkaspar@oeaw.ac.at -->
+    <!-- some cosmetics and minor changes added by csae8092   -->
     <xsl:output method="html" indent="yes"/>
     
     <xsl:param name="about"/>
@@ -70,7 +71,9 @@
                         <xsl:apply-templates select="//comment()" />
                     </ul>
                 </div>-->
+                    
                     <div>
+                        <h2>TOC</h2>
                         <p>Classes:
                             <xsl:for-each select="//owl:Class">
                                 <xsl:sort select="@rdf:about"/>
@@ -94,7 +97,7 @@
                         </p>
                     </div>
                     <xsl:for-each-group select="/rdf:RDF/owl:*[not(self::owl:Ontology) and contains(@rdf:about, $about)]" group-by="local-name()">
-                        <xsl:sort select="rdfs:label"/>
+<!--                        <xsl:sort select="rdfs:label"/>-->
                         <div>
                             <h2>
                                 <xsl:value-of select="current-group()[1]/local-name()"/>

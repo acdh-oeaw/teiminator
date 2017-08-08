@@ -9,7 +9,8 @@
     <type>application</type>
     <target>teiminator</target>
     <prepare>pre-install.xql</prepare>
-    <finish/>
-    <permissions xmlns:repo="http://exist-db.org/xquery/repo" user="admin" group="dba" mode="rw-rw-r--"/>
-<deployed>2017-06-22T12:33:30.372+02:00</deployed>
+    <finish>post-install.xql</finish>
+    <permissions xmlns:repo="http://exist-db.org/xquery/repo" password="" user="admin" group="dba" mode="rw-rw-r--"/>
+
+
 </meta>

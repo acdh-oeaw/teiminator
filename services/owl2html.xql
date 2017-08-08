@@ -4,7 +4,6 @@ import module namespace xmldb = "http://exist-db.org/xquery/xmldb";
 import module namespace httpclient = "http://exist-db.org/xquery/httpclient";
 import module namespace util = "http://exist-db.org/xquery/util";
 import module namespace config = "http://www.digital-archiv.at/ns/teiminator/config" at "../modules/config.xqm";
-import module namespace check = "http://www.digital-archiv.at/ns/teiminator/check" at "../modules/check.xqm";
 declare namespace tei = "http://www.tei-c.org/ns/1.0";
 
 declare option exist:serialize "method=xhtml media-type=text/html omit-xml-declaration=yes indent=yes";
@@ -16,12 +15,8 @@ let $owl := request:get-parameter("owl", "")
 let $xsl := doc('../resources/owl/owl2html.xsl')
 
 return
-	if (not(check:checkXML($owl)))
-	then
-		(check:report($owl))
-	else
-		let $owlFile := doc($owl)
-		let $params :=
+	let $owlFile := doc($owl)
+	let $params :=
 		<parameters>
 			{
 				for $p in request:get-parameter-names()
@@ -33,7 +28,7 @@ return
 						value="{$val}"/>
 			}
 		</parameters>
-		let $return := if ($owl eq "")
+	let $return := if ($owl eq "")
 		then
 			$fallback
 		else

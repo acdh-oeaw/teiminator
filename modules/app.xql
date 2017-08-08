@@ -10,6 +10,7 @@ declare variable  $app:editions := $config:app-root||'/data/editions';
 declare variable $app:placeIndex := $config:app-root||'/data/indices/listplace.xml';
 declare variable $app:personIndex := $config:app-root||'/data/indices/listperson.xml';
 
+
 declare function functx:contains-case-insensitive
   ( $arg as xs:string? ,
     $substring as xs:string )  as xs:boolean? {

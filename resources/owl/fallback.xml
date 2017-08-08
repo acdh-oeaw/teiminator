@@ -33,7 +33,7 @@
             </span>
             <h3>Maybe try another URL</h3>
             <form method="get">
-               Url to OWL-Doc: <input type="text" name="owl" value="https://raw.githubusercontent.com/csae8092/schemaplay/master/acdh-schema-v0.1.owl"/>
+               Url to OWL-Doc: <input type="text" name="owl" value="https://raw.githubusercontent.com/acdh-oeaw/repo-schema/master/acdh-schema.owl"/>
                <input type="submit" value="Submit"/>
             </form>
          </div>
