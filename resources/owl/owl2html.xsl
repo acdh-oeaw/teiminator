@@ -2,6 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0">
     <!-- created 2017-07-20 DK = dario.kampkaspar@oeaw.ac.at -->
     <!-- some cosmetics and minor changes added by csae8092   -->
+    <!-- added a table format (parameter: format=table) by https://github.com/vronk-->
     <xsl:output method="html" indent="yes"/>
 
     <xsl:param name="format"></xsl:param> <!-- allowed values: table | detail (default) -->    
