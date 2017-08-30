@@ -3,7 +3,8 @@
     <!-- created 2017-07-20 DK = dario.kampkaspar@oeaw.ac.at -->
     <!-- some cosmetics and minor changes added by csae8092   -->
     <xsl:output method="html" indent="yes"/>
-    
+
+    <xsl:param name="format"></xsl:param> <!-- allowed values: table | detail (default) -->    
     <xsl:param name="about"/>
     
     <xsl:template match="/">
@@ -19,7 +20,7 @@
                     <link rel="icon" href="favicon.ico"/>
                     <title>
                         <!-- <xsl:value-of select="cmd:Components/cmd:FrequencyListProfile/cmd:GeneralInfo/cmd:ResourceName"/> -->
-                        CMDI2HTML by ÖAW-ACDH
+                        OWL2HTML by ÖAW-ACDH
                     </title>
                     <!-- Bootstrap core CSS -->
                     <link rel="stylesheet" type="text/css" href="../resources/css/bootstrap-3.0.3.min.css"/>
@@ -45,6 +46,16 @@
                         h3 {
                         background-color: white;
                         }
+                        /* override rendering of links introduced by bootstrap */
+                        @media print
+                        {
+                        a[href]:after{content:""}
+                        
+                        body {
+                        padding-left: 0%;
+                        padding-right: 0%;
+                        }
+                        }
                     </style>
                 </head>
                 <title>
@@ -62,6 +73,23 @@
                     <h1>
                         <xsl:value-of select="/rdf:RDF/owl:Ontology/@rdf:about"/>
                     </h1>
+                </div>                    
+                    <xsl:choose>
+                        <xsl:when test="$format='table'">
+                            <xsl:call-template name="table"></xsl:call-template>        
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <div class="container" >
+                            <xsl:call-template name="detail"></xsl:call-template>
+                                </div>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                  
+            </body>
+        </html>
+    </xsl:template>
+    
+    <xsl:template name="detail">
                     <div>
                         <h2>Status</h2>
                         <xsl:apply-templates select="/rdf:RDF/owl:Ontology/owl:versionInfo"/>
@@ -96,6 +124,9 @@
                             </xsl:for-each>
                         </p>
                     </div>
+                    
+                    
+                    
                     <xsl:for-each-group select="/rdf:RDF/owl:*[not(self::owl:Ontology) and contains(@rdf:about, $about)]" group-by="local-name()">
 <!--                        <xsl:sort select="rdfs:label"/>-->
                         <div>
@@ -104,10 +135,8 @@
                             </h2>
                             <xsl:apply-templates select="current-group()" mode="group"/>
                         </div>
-                    </xsl:for-each-group>
-                </div>
-            </body>
-        </html>
+                    </xsl:for-each-group>                
+    
     </xsl:template>
     
     <xsl:template match="owl:*" mode="group">
@@ -202,5 +231,108 @@
                 <xsl:value-of select="."/>
             </xsl:non-matching-substring>
         </xsl:analyze-string>
+    </xsl:template>
+    
+    <xsl:template name="table">
+                    <!--            <p>Datatype properties:</p>
+                                    
+                            <xsl:apply-templates select="//owl:DatatypeProperty" mode="table">
+                                <xsl:sort select="@rdf:about"/>
+                            </xsl:apply-templates>-->
+                        
+    <h2>Classes</h2>
+    <table class="table table-striped">
+            <tr>
+            <th>class</th>
+            <th>subClassOf</th>            
+            <th>comment</th>            
+                </tr>
+                    <xsl:apply-templates select="//owl:Class[rdfs:subClassOf/@rdf:resource='http://www.w3.org/2002/07/owl#Thing']" mode="table">
+                                <xsl:sort select="@rdf:about"/>                                
+                    </xsl:apply-templates>
+            </table>
+    
+     <h2>Object properties:</h2>
+        <table class="table table-striped">
+            <tr>
+            <th>label</th>
+            <th>domain</th>
+            <th>range</th>
+            <th>comment</th>
+            <th>inverseOf</th>
+            <th>subPropertyOf</th>
+                </tr>
+                    <xsl:apply-templates select="//owl:ObjectProperty[contains(@rdf:about, $about)][rdfs:subPropertyOf/@rdf:resource='http://www.w3.org/2002/07/owl#topObjectProperty']" mode="table">
+                                <xsl:sort select="@rdf:about"/>                                
+                    </xsl:apply-templates>
+            </table>
+        
+    <h2>Data properties:</h2>
+        <table class="table table-striped">
+            <tr>
+            <th>label</th>
+            <th>domain</th>
+            <th>range</th>
+            <th>comment</th>
+            <th>inverseOf</th>
+            <th>subPropertyOf</th>
+                </tr>
+                    <xsl:apply-templates select="//owl:DatatypeProperty[contains(@rdf:about, $about)][rdfs:subPropertyOf/@rdf:resource='http://www.w3.org/2002/07/owl#topDataProperty']" mode="table">
+                                <xsl:sort select="@rdf:about"/>                                
+                    </xsl:apply-templates>
+            </table>
+    </xsl:template>
+    
+    <!-- 
+        <xd:doc>
+        <xd:pre>
+    <owl:ObjectProperty rdf:about="http://vocabs.acdh.oeaw.ac.at#hasRelatedCollection">
+        <rdfs:subPropertyOf rdf:resource="https://vocabs.acdh.oeaw.ac.at/#relation"/>
+        <owl:inverseOf rdf:resource="https://vocabs.acdh.oeaw.ac.at/#hasRelatedProject"/>
+        <rdfs:domain rdf:resource="https://vocabs.acdh.oeaw.ac.at/#Project"/>
+        <rdfs:range rdf:resource="https://vocabs.acdh.oeaw.ac.at/#Collection"/>
+        <rdfs:comment xml:lang="en">Indication of collection associated to this project.</rdfs:comment>
+        <rdfs:label xml:lang="en">has related collection</rdfs:label>
+        <skos:altLabel xml:lang="en">Related collection</skos:altLabel>
+        <skos:altLabel xml:lang="de">Zugehörige Sammlung</skos:altLabel>
+    </owl:ObjectProperty>
+    
+</xd:pre>
+    </xd:doc>
+    -->
+    <xsl:template match="owl:ObjectProperty|owl:DatatypeProperty" mode="table">        
+       <xsl:param name="level" select="''"/>
+        
+        <xsl:variable name="curr_prop" select="@rdf:about"/>
+        
+        <tr>
+            <td><xsl:value-of select="$level" /> <b><xsl:apply-templates select="rdfs:label"/></b></td>            
+            <td><xsl:apply-templates select="rdfs:domain/@rdf:resource"/></td>
+            <td><xsl:apply-templates select="rdfs:range/@rdf:resource"/></td>
+            <td><xsl:apply-templates select="rdfs:comment"/></td>
+            <td><xsl:apply-templates select="owl:inverseOf/@rdf:resource"/></td>
+            <td><xsl:apply-templates select="rdfs:subPropertyOf/@rdf:resource"/></td>
+        </tr>
+        
+        <xsl:apply-templates select="//(owl:ObjectProperty|owl:DatatypeProperty)[rdfs:subPropertyOf/@rdf:resource=$curr_prop]" mode="table">
+            <xsl:with-param name="level" select="concat($level, '- ')"/>
+        </xsl:apply-templates>
+        
+    </xsl:template>
+    <xsl:template match="owl:Class" mode="table">        
+       <xsl:param name="level" select="''"/>
+        
+        <xsl:variable name="curr_class" select="@rdf:about"/>
+        
+        <tr>
+            <td><xsl:value-of select="$level" /> <b><xsl:apply-templates select="rdfs:label"/></b></td>            
+            <td><xsl:apply-templates select="rdfs:subClassOf/@rdf:resource"/></td>
+            <td><xsl:apply-templates select="rdfs:comment"/></td>           
+            
+        </tr>        
+        <xsl:apply-templates select="//owl:Class[rdfs:subClassOf/@rdf:resource=$curr_class]" mode="table">
+            <xsl:with-param name="level" select="concat($level, '- ')"/>
+        </xsl:apply-templates>
+        
     </xsl:template>
 </xsl:stylesheet>
