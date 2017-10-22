@@ -41,6 +41,14 @@ declare function functx:substring-after-last
             '$1')
    else ''
  } ;
+declare function app:selectStylesheet($node as node(), $model as map(*)) {
+    
+    let $stylelist := doc($config:app-root||'/transform/adds.xml')
+    
+    for $file in $stylelist//entry
+		return
+		  <option value="{$file/@file}">{$file/@label}</option>
+};
 
 declare function app:fetchEntity($ref as xs:string){
     let $entity := collection($config:app-root||'/data/indices')//*[@xml:id=$ref]

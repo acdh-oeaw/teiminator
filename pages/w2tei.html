@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div class="templates:surround?with=templates/page.html&amp;at=content">
+    <div id="content">
+        <form enctype="multipart/form-data" method="post" action="../transform/convert2.xql">
+            <fieldset>
+                <legend>Upload Word (.docx) [or OO (.odt) [or Excel]:</legend>
+                <input type="file" name="file" style="width: 90%;"/>
+                <label>1st line is heading (fixed rows in Excel are always considered headings):</label>
+                <input type="checkbox" name="firstheading"/>
+                <input type="submit" value="Upload" style="float: right;"/>
+                <br/>
+                <label>select XSLT for processing:</label>
+                <select name="xslt">
+                    <option selected="selected">none</option>
+                    <option data-template="app:selectStylesheet"/>  
+                </select>
+            </fieldset>
+        </form>
+    </div>
+</div>

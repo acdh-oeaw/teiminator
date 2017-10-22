@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<entry label="Excel2TEI" file="add/mondsee.xsl"/>
+	<entry label="Word2TEI" file="add/mondsee-word.xsl"/>
+	<entry label="Ministerratsprotokolle" file="add/ministerrat.xsl"/>
+	<entry label="MP-Register" file="add/ministerrat-register.xsl"/>
+</list>

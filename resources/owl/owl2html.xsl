@@ -5,7 +5,7 @@
     <!-- added a table format (parameter: format=table) by https://github.com/vronk-->
     <xsl:output method="html" indent="yes"/>
 
-    <xsl:param name="format"></xsl:param> <!-- allowed values: table | detail (default) -->    
+    <xsl:param name="format"/> <!-- allowed values: table | detail (default) -->    
     <xsl:param name="about"/>
     
     <xsl:template match="/">
@@ -77,11 +77,11 @@
                 </div>                    
                     <xsl:choose>
                         <xsl:when test="$format='table'">
-                            <xsl:call-template name="table"></xsl:call-template>        
+                            <xsl:call-template name="table"/>        
                         </xsl:when>
                         <xsl:otherwise>
-                            <div class="container" >
-                            <xsl:call-template name="detail"></xsl:call-template>
+                            <div class="container">
+                            <xsl:call-template name="detail"/>
                                 </div>
                         </xsl:otherwise>
                     </xsl:choose>
@@ -307,12 +307,26 @@
         <xsl:variable name="curr_prop" select="@rdf:about"/>
         
         <tr>
-            <td><xsl:value-of select="$level" /> <b><xsl:apply-templates select="rdfs:label"/></b></td>            
-            <td><xsl:apply-templates select="rdfs:domain/@rdf:resource"/></td>
-            <td><xsl:apply-templates select="rdfs:range/@rdf:resource"/></td>
-            <td><xsl:apply-templates select="rdfs:comment"/></td>
-            <td><xsl:apply-templates select="owl:inverseOf/@rdf:resource"/></td>
-            <td><xsl:apply-templates select="rdfs:subPropertyOf/@rdf:resource"/></td>
+            <td>
+                <xsl:value-of select="$level"/> <b>
+                    <xsl:apply-templates select="rdfs:label"/>
+                </b>
+            </td>            
+            <td>
+                <xsl:apply-templates select="rdfs:domain/@rdf:resource"/>
+            </td>
+            <td>
+                <xsl:apply-templates select="rdfs:range/@rdf:resource"/>
+            </td>
+            <td>
+                <xsl:apply-templates select="rdfs:comment"/>
+            </td>
+            <td>
+                <xsl:apply-templates select="owl:inverseOf/@rdf:resource"/>
+            </td>
+            <td>
+                <xsl:apply-templates select="rdfs:subPropertyOf/@rdf:resource"/>
+            </td>
         </tr>
         
         <xsl:apply-templates select="//(owl:ObjectProperty|owl:DatatypeProperty)[rdfs:subPropertyOf/@rdf:resource=$curr_prop]" mode="table">
@@ -326,9 +340,17 @@
         <xsl:variable name="curr_class" select="@rdf:about"/>
         
         <tr>
-            <td><xsl:value-of select="$level" /> <b><xsl:apply-templates select="rdfs:label"/></b></td>            
-            <td><xsl:apply-templates select="rdfs:subClassOf/@rdf:resource"/></td>
-            <td><xsl:apply-templates select="rdfs:comment"/></td>           
+            <td>
+                <xsl:value-of select="$level"/> <b>
+                    <xsl:apply-templates select="rdfs:label"/>
+                </b>
+            </td>            
+            <td>
+                <xsl:apply-templates select="rdfs:subClassOf/@rdf:resource"/>
+            </td>
+            <td>
+                <xsl:apply-templates select="rdfs:comment"/>
+            </td>           
             
         </tr>        
         <xsl:apply-templates select="//owl:Class[rdfs:subClassOf/@rdf:resource=$curr_class]" mode="table">
