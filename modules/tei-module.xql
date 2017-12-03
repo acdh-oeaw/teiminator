@@ -26,8 +26,8 @@ declare function tei-module:places2geoJSON($places as node()*, $separator as xs:
                         <type>Feature</type>
                         <geometry>
                             <type>Point</type>
-                            <coordinates>{$lat}</coordinates>
-                            <coordinates>{$lng}</coordinates>
+                            <coordinates>{translate($lat, ',', '')}</coordinates>
+                            <coordinates>{translate($lng, ',', '')}</coordinates>
                         </geometry>
                         <properties>
                             <internalID>{data($place/@xml:id)}</internalID>
@@ -61,8 +61,8 @@ declare function tei-module:listPlace2geoJSON($listPlace as node(), $separator a
                         <type>Feature</type>
                         <geometry>
                             <type>Point</type>
-                            <coordinates>{$lat}</coordinates>
-                            <coordinates>{$lng}</coordinates>
+                            <coordinates>{translate($lat, ',', '')}</coordinates>
+                            <coordinates>{translate($lng, ',', '')}</coordinates>
                         </geometry>
                         <properties>
                             <internalID>{data($place/@xml:id)}</internalID>
