@@ -104,23 +104,50 @@
                     <div>
                         <h2>TOC</h2>
                         <p>Classes:
-                            <xsl:for-each select="//owl:Class">
+                            <xsl:for-each select="/rdf:RDF/owl:Class">
                                 <xsl:sort select="@rdf:about"/>
-                                <xsl:apply-templates select="rdfs:label"/>
+                                <xsl:choose>
+                                    <xsl:when test="rdfs:label">
+                                        <xsl:apply-templates select="rdfs:label"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:text>[</xsl:text>
+                                        <xsl:value-of select="normalize-space(@rdf:about)"/>
+                                        <xsl:text>]</xsl:text>
+                                    </xsl:otherwise>
+                                </xsl:choose>
                                 <xsl:if test="not(position() = last())"> | </xsl:if>
                             </xsl:for-each>
                         </p>
                         <p>Datatype properties:
-                            <xsl:for-each select="//owl:DatatypeProperty">
+                            <xsl:for-each select="/rdf:RDF/owl:DatatypeProperty">
                                 <xsl:sort select="@rdf:about"/>
-                                <xsl:apply-templates select="rdfs:label"/>
+                                <xsl:choose>
+                                    <xsl:when test="rdfs:label">
+                                        <xsl:apply-templates select="rdfs:label"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:text>[</xsl:text>
+                                        <xsl:value-of select="normalize-space(@rdf:about)"/>
+                                        <xsl:text>]</xsl:text>
+                                    </xsl:otherwise>
+                                </xsl:choose>
                                 <xsl:if test="not(position() = last())"> | </xsl:if>
                             </xsl:for-each>
                         </p>
                         <p>Object properties:
                             <xsl:for-each select="//owl:ObjectProperty[contains(@rdf:about, $about)]">
                                 <xsl:sort select="@rdf:about"/>
-                                <xsl:apply-templates select="rdfs:label"/>
+                                <xsl:choose>
+                                    <xsl:when test="rdfs:label">
+                                        <xsl:apply-templates select="rdfs:label"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:text>[</xsl:text>
+                                        <xsl:value-of select="normalize-space(@rdf:about)"/>
+                                        <xsl:text>]</xsl:text>
+                                    </xsl:otherwise>
+                                </xsl:choose>
                                 <xsl:if test="not(position() = last())"> | </xsl:if>
                             </xsl:for-each>
                         </p>
@@ -182,7 +209,20 @@
                 <xsl:value-of select="local-name()"/>
             </td>
             <td>
-                <xsl:apply-templates select="@rdf:resource"/>
+                <xsl:choose>
+                    <xsl:when test="@rdf:resource">
+                        <xsl:apply-templates select="@rdf:resource"/>
+                    </xsl:when>
+                    <xsl:when test="owl:Restriction">
+                        <xsl:text>[</xsl:text>
+                        <xsl:apply-templates select="owl:Restriction/owl:onProperty/@rdf:resource"/>
+                        <xsl:text>]</xsl:text>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:text>[</xsl:text>
+                        <xsl:text>]</xsl:text>
+                    </xsl:otherwise>
+                </xsl:choose>
             </td>
         </tr>
     </xsl:template>
@@ -191,6 +231,9 @@
         <a>
             <xsl:attribute name="href">
                 <xsl:choose>
+                    <xsl:when test="//owl:*[contains(@rdf:about, .)]">
+                        <xsl:value-of select="concat('#', translate(substring-after(., ':'), ' ', '_'))"/>
+                    </xsl:when>
                     <xsl:when test="starts-with(., 'http')">
                         <xsl:value-of select="."/>
                     </xsl:when>
